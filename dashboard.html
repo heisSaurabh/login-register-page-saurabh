@@ -1,15 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>User Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>User Profile</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      width: 320px;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
-  <h2>User Dashboard</h2>
 
-  <div id="userData"></div>
-  <button id="logout">Logout</button>
+  <h2>User Profile</h2>
+
+  <div id="viewSection">
+    <p><b>Name:</b> <span id="nameView"></span></p>
+    <p><b>Age:</b> <span id="ageView"></span></p>
+    <p><b>Phone:</b> <span id="phoneView"></span></p>
+    <p><b>Email:</b> <span id="emailView"></span></p>
+    <p><b>Address:</b> <span id="addressView"></span></p>
+    <p><b>Pincode:</b> <span id="pincodeView"></span></p>
+
+    <button id="editProfileBtn">Update Profile</button>
+    <button id="changePasswordBtn">Change Password</button>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <div id="editSection" style="display:none;">
+    <input id="nameInput" placeholder="Name" />
+    <input id="ageInput" placeholder="Age" />
+    <input id="phoneInput" placeholder="Phone" />
+    <input id="emailInput" placeholder="Email" />
+    <textarea id="addressInput" placeholder="Address"></textarea>
+    <input id="pincodeInput" placeholder="Pincode" />
+
+    <button id="saveProfileBtn">Update the Changes</button>
+  </div>
+
+  <div class="modal" id="passwordModal">
+    <div class="modal-content">
+      <h3>Change Password</h3>
+
+      <input type="password" id="newPassword" placeholder="New Password" />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" />
+
+      <label>
+        <input type="checkbox" id="confirmChange" />
+        I confirm to change my password
+      </label>
+
+      <p id="passwordError" style="color:red;"></p>
+
+      <button id="updatePasswordBtn">Update Password</button>
+      <button id="cancelPasswordBtn">Cancel</button>
+    </div>
+  </div>
 
   <script src="js/dashboard.js"></script>
 </body>
